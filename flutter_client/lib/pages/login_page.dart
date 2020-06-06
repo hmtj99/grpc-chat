@@ -14,7 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name;
-  String videoURL;
+  String videoURL = "https://www.youtube.com/watch?v=6R6fC-RZGJk";
   Int64 chatroom;
   TextEditingController controller;
   TextEditingController chatroomController;

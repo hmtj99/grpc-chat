@@ -15,10 +15,11 @@ message Message{
     string content =2;
     string timestamp = 3;
     int64 chatRoom = 4;
+    bool isYTLink = 5;
 }
 
 message Connect{
-    User user =1;
+    User user = 1;
     bool active= 2;
     bool wantsNewRoom = 3;
 }

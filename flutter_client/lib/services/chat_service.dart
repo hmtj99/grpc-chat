@@ -6,7 +6,6 @@ import 'package:flutter_client/protos/chat.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
-import 'package:flutter/material.dart';
 
 class ChatService {
   User user = User();
@@ -30,13 +29,14 @@ class ChatService {
     );
   }
 
-  Future<Close> sendMessage(String body) async {
+  Future<Close> sendMessage(String body, bool isYTLink) async {
     print("Send Message Called");
     return client.broadcastMessage(Message()
       ..id = user.name
       ..content = body
       ..timestamp = DateTime.now().toIso8601String()
-      ..chatRoom = user.chatRoomNo);
+      ..chatRoom = user.chatRoomNo
+      ..isYTLink = isYTLink);
   }
 
   Stream<Message> recieveMessage({bool wantsNewRoom}) async* {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fixnum/fixnum.dart';
-import 'package:flutter_client/pages/login_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../services/chat_service.dart';
 import '../protos/chat.pb.dart';
@@ -20,7 +19,8 @@ class _MessagePageState extends State<MessagePage> {
   @override
   void initState() {
     super.initState();
-    controller = TextEditingController();
+    controller = TextEditingController(
+        text: "https://www.youtube.com/watch?v=59AYXzCa-Cs");
     messages = Set();
     scrollController = ScrollController();
     _ytcontroller = YoutubePlayerController(
@@ -40,6 +40,17 @@ class _MessagePageState extends State<MessagePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Chatroom - ' + widget.chatroomid.toString()),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                widget.service.sendMessage(controller.text, true);
+                controller.clear();
+              })
+        ],
       ),
       body: Center(
         child: Column(
@@ -76,7 +87,13 @@ class _MessagePageState extends State<MessagePage> {
                   if (!snapshot.hasData) {
                     return Center(child: Text("Start by typing a message"));
                   }
-                  messages.add(snapshot.data);
+                  if (snapshot.data.isYTLink == false) {
+                    messages.add(snapshot.data);
+                  } else {
+                    String videoID =
+                        YoutubePlayer.convertUrlToId(snapshot.data.content);
+                    _ytcontroller.load(videoID);
+                  }
                   return ListView(
                     controller: scrollController,
                     children: messages
@@ -112,7 +129,7 @@ class _MessagePageState extends State<MessagePage> {
                   padding: const EdgeInsets.all(5.0),
                   child: FloatingActionButton(
                     onPressed: () {
-                      widget.service.sendMessage(controller.text);
+                      widget.service.sendMessage(controller.text, false);
                       controller.clear();
                       scrollController
                           .jumpTo(scrollController.position.maxScrollExtent);

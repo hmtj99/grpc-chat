@@ -99,6 +99,7 @@ func main() {
 				Content:   scanner.Text(),
 				Timestamp: timeStamp.String(),
 				ChatRoom:  user.GetChatRoomNo(),
+				IsYTLink:  false,
 			}
 
 			_, err := client.BroadcastMessage(context.Background(), msg)

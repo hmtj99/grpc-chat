@@ -68,6 +68,7 @@ class Message extends $pb.GeneratedMessage {
     ..aOS(2, 'content')
     ..aOS(3, 'timestamp')
     ..aInt64(4, 'chatRoom', protoName: 'chatRoom')
+    ..aOB(5, 'isYTLink', protoName: 'isYTLink')
     ..hasRequiredFields = false
   ;
 
@@ -121,6 +122,15 @@ class Message extends $pb.GeneratedMessage {
   $core.bool hasChatRoom() => $_has(3);
   @$pb.TagNumber(4)
   void clearChatRoom() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.bool get isYTLink => $_getBF(4);
+  @$pb.TagNumber(5)
+  set isYTLink($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasIsYTLink() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearIsYTLink() => clearField(5);
 }
 
 class Connect extends $pb.GeneratedMessage {

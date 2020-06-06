@@ -69,13 +69,6 @@ func (s *Server) CreateStream(pcon *chatpb.Connect, stream chatpb.Broadcast_Crea
 		}
 	}
 
-	// if _, ok := s.Connections[chatroom]; ok {
-	// 	s.Connections[chatroom] = append(s.Connections[chatroom], conn)
-	// } else {
-	// 	newConnection := []*Connection{conn}
-	// 	s.Connections[chatroom] = newConnection
-	// }
-
 	return <-conn.error
 }
 

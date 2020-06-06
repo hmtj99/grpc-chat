@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "chatpb";
+
+message User{
+    string id = 1;
+    string name =2;
+    int64 chatRoomNo = 3;
+}
+
+message Message{
+    string id =1;
+    string content =2;
+    string timestamp = 3;
+    int64 chatRoom = 4;
+}
+
+message Connect{
+    User user =1;
+    bool active= 2;
+    bool wantsNewRoom = 3;
+}
+
+message Close{}
+
+service Broadcast{
+    rpc CreateStream(Connect) returns (stream Message);
+    rpc BroadcastMessage(Message) returns (Close);
+}

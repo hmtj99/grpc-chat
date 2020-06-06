@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "289891752697",
+    "firebase_url": "https://rooms-67f01.firebaseio.com",
+    "project_id": "rooms-67f01",
+    "storage_bucket": "rooms-67f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289891752697:android:1a4925db56cf003461a028",
+        "android_client_info": {
+          "package_name": "com.hemant.flutter_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289891752697-262pkcvo4prik7hv9a158rb46b3onv29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5GHODdaqUx-PspLAKF_ldSRwUjX5I1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289891752697-262pkcvo4prik7hv9a158rb46b3onv29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

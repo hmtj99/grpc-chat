@@ -25,8 +25,7 @@ class _CreateChatroomPageState extends State<CreateChatroomPage> {
     super.initState();
     chatroom = Int64(new DateTime.now().millisecondsSinceEpoch);
     controller = TextEditingController(text: widget.user.displayName);
-    controller2 = TextEditingController(
-        text: "https://www.youtube.com/watch?v=4uMchksQJng");
+    controller2 = TextEditingController();
     chatroomController = TextEditingController(text: chatroom.toString());
     name = widget.user.displayName;
     videoURL = "https://www.youtube.com/watch?v=4uMchksQJng";

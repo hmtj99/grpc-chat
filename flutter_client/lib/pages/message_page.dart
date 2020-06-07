@@ -19,8 +19,7 @@ class _MessagePageState extends State<MessagePage> {
   @override
   void initState() {
     super.initState();
-    controller = TextEditingController(
-        text: "https://www.youtube.com/watch?v=59AYXzCa-Cs");
+    controller = TextEditingController();
     messages = Set();
     scrollController = ScrollController();
     _ytcontroller = YoutubePlayerController(

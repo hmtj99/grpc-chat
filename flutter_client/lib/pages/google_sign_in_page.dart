@@ -44,6 +44,9 @@ class _GoogleSignInPageState extends State<GoogleSignInPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset(
+                "images/logo_red2.png",
+              ),
               GoogleSignInButton(
                 onPressed: () {
                   _handleSignIn().then((FirebaseUser user) {
@@ -57,6 +60,7 @@ class _GoogleSignInPageState extends State<GoogleSignInPage> {
                     }));
                   }).catchError((e) => print(e));
                 },
+                darkMode: true,
               ),
             ],
           ),

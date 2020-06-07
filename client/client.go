@@ -68,7 +68,7 @@ func main() {
 	fmt.Println("Name is", *name)
 	id := sha256.Sum256([]byte(timeStamp.String() + *name))
 
-	conn, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	conn, err := grpc.Dial("34.220.130.254:80", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Error connecting to server: %v", err)
 	}

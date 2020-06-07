@@ -22,8 +22,8 @@ class ChatService {
 
     client = BroadcastClient(
       ClientChannel(
-        "10.0.2.2",
-        port: 50051,
+        "34.220.130.254",
+        port: 80,
         options: ChannelOptions(credentials: ChannelCredentials.insecure()),
       ),
     );
